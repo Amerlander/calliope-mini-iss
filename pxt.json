@@ -8,6 +8,8 @@
         "main.blocks",
         "main.ts",
         "README.md",
+        "shims.d.ts",
+        "enums.d.ts",
         "compass.cpp"
     ],
     "testFiles": [
