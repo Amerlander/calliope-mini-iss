@@ -2,7 +2,8 @@
 
 class MicroBitCompassDriver : public MicroBitCompass
 {
+    public:
 
-    void assumeCalibrated();
+        void assumeCalibrated();
 
 }
