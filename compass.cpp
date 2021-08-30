@@ -34,7 +34,7 @@ namespace input {
     //% blockId="input_compass_assume_calibration" block="assume compass calibrated"
     //% weight=45
     void assumeCalibratedCompass() {
-        compassDriver cd;
+        MicroBitCompassDriver cd;
         cd.assumeCalibrated();
     }
 
