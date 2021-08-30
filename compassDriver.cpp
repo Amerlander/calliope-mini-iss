@@ -1,4 +1,4 @@
-#include "MicroBitCompassDriver.h"
+#include "compassDriver.h"
 
 /**
  * Assume the Compass has callibration data and set it as callibrated

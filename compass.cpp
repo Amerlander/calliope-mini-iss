@@ -1,4 +1,5 @@
 #include "pxt.h"
+#include "compassDriver.h"
 using namespace pxt;
 
 /**
@@ -33,7 +34,7 @@ namespace input {
     //% blockId="input_compass_assume_calibration" block="assume compass calibrated"
     //% weight=45
     void assumeCalibratedCompass() {
-        // uBit.compass.assumeCalibrated();
+        MicroBitCompassDriver.assumeCalibrated();
     }
 
 }
