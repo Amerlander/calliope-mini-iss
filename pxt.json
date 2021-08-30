@@ -10,7 +10,8 @@
         "README.md",
         "shims.d.ts",
         "enums.d.ts",
-        "compass.cpp"
+        "compass.cpp",
+        "compassDriver.cpp"
     ],
     "testFiles": [
         "test.ts"
