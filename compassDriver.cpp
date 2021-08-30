@@ -1,12 +1,11 @@
-#include "MicroBitCompass.h"
+// #include "MicroBitCompass.h"
 
-using namespace  MicroBitCompass;
-
-/**
- * Assume the Compass has callibration data and set it to callibrated
- *
- */
-void assumeCalibration()
-{
-    status |= MICROBIT_COMPASS_STATUS_CALIBRATED;
-}
+// /**
+//  * Assume the Compass has callibration data and set it as callibrated
+//  *
+//  */
+// void MicroBitCompass::assumeCalibrated()
+// {
+//     status |= MICROBIT_COMPASS_STATUS_CALIBRATED;
+//     // status |= 0x02;
+// }
