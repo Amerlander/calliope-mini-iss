@@ -1,5 +1,7 @@
 #include "compassDriver.h"
 
+MicroBitCompassDriver::MicroBitCompassDriver();
+
 /**
  * Assume the Compass has callibration data and set it as callibrated
  *
