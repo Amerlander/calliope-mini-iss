@@ -8,7 +8,7 @@ using namespace pxt;
 namespace input {
 
     /**
-     * Obsolete, compass calibration is automatic.
+     * 
      */
     //% help=input/calibrate-compass advanced=true
     //% blockId="input_compass_is_calibrated" block="is compass calibrated?"
@@ -18,7 +18,7 @@ namespace input {
     }
 
     /**
-     * Obsolete, compass calibration is automatic.
+     * 
      */
     //% help=input/calibrate-compass advanced=true
     //% blockId="input_compass_clear_calibration" block="clear compass calibration"
@@ -28,13 +28,13 @@ namespace input {
     }
 
     /**
-     * Obsolete, compass calibration is automatic.
+     * 
      */
     //% help=input/calibrate-compass advanced=true
     //% blockId="input_compass_assume_calibration" block="assume compass calibrated"
     //% weight=45
     void assumeCalibratedCompass() {
-        MicroBitCompassDriver.assumeCalibrated();
+        MicroBitCompassDriver::assumeCalibrated();
     }
 
 }
