@@ -1,16 +1,6 @@
 #include "MicroBitCompass.h"
 
-class MicroBitCompassDriver : public MicroBitCompass
+class MicroBitCompassDerived : public MicroBitCompass
 {
-    
-    public:
-
-        /**
-         * Constructor.
-         *
-         */
-        MicroBitCompassDriver();
-
-        void assumeCalibrated();
 
 };
