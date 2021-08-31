@@ -1,6 +1,14 @@
 #include "MicroBitCompass.h"
 
-class MicroBitCompassDerived : public MicroBitCompass
+class MicroBitCompassDriver : public MicroBitCompass
 {
+
+    private:
+
+        /**
+         * Internal helper used to de-duplicate code in the constructors
+         *
+         */
+        void init(uint16_t id);
 
 };

@@ -35,8 +35,8 @@ namespace input {
     //% weight=45
     void assumeCalibratedCompass() {
         uBit.compass.clearCalibration();
-        // MicroBitCompassDriver cd;
-        // cd.assumeCalibrated();
+        MicroBitCompassDriver compass;
+        // compass.assumeCalibrated();
     }
 
 }

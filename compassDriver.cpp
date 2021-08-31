@@ -6,7 +6,7 @@
  * @param id the unique EventModel id of this component. Defaults to: MICROBIT_ID_COMPASS
  *
  */
-void MicroBitCompassDerived::init(uint16_t id)
+void MicroBitCompassDriver::init(uint16_t id)
 {
     // Store our identifiers.
     this->id = id;
