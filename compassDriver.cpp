@@ -1,5 +1,36 @@
 #include "compassDriver.h"
 
+
+
+/**
+ * Constructor.
+ * Create a software abstraction of an e-compass.
+ *
+ * @param id the unique EventModel id of this component. Defaults to: MICROBIT_ID_COMPASS
+ * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
+ *
+ */
+MicroBitCompassDriver::MicroBitCompassDriver(CoordinateSpace &cspace, uint16_t id) : MicroBitCompass(id),  calibration(), sample(), sampleENU(), coordinateSpace(cspace)
+{
+}
+
+/**
+ * Constructor.
+ * Create a software abstraction of an e-compass.
+ *
+ * @param id the unique EventModel id of this component. Defaults to: MICROBIT_ID_COMPASS
+ * @param accel the accelerometer to use for tilt compensation
+ * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
+ *
+ */
+MicroBitCompassDriver::MicroBitCompassDriver(MicroBitAccelerometer &accel, CoordinateSpace &cspace, uint16_t id) : MicroBitCompass(id),  calibration(), sample(), sampleENU(), coordinateSpace(cspace)
+{
+}
+
+
+
+
+
 /**
  * Internal helper used to de-duplicate code in the constructors
  * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
