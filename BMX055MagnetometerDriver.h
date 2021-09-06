@@ -11,6 +11,6 @@ public:
      * @param id The unique EventModel id of this component. Defaults to: MICROBIT_ID_ACCELEROMETER
      *
      */
-    BMX055Magnetometer(MicroBitI2C& _i2c, MicroBitPin _int1, CoordinateSpace &coordinateSpace, uint16_t address = BMX055_M_DEFAULT_ADDR, uint16_t id = MICROBIT_ID_COMPASS);
+    BMX055MagnetometerDriver(MicroBitI2C& _i2c, MicroBitPin _int1, CoordinateSpace &coordinateSpace, uint16_t address = BMX055_M_DEFAULT_ADDR, uint16_t id = MICROBIT_ID_COMPASS);
 
 };

@@ -13,7 +13,7 @@ class MicroBitCompassDriver : public MicroBitCompass
          * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
          *
          */
-        MicroBitCompass(CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
+        MicroBitCompassDriver(CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
 
         /**
          * Constructor.
@@ -24,7 +24,17 @@ class MicroBitCompassDriver : public MicroBitCompass
          * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
          *
          */
-        MicroBitCompass(MicroBitAccelerometer &accel, CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
+        MicroBitCompassDriver(MicroBitAccelerometer &accel, CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
+
+
+        /**
+         * Device autodetection. Scans the given I2C bus for supported compass devices.
+         * if found, constructs an appropriate driver and returns it.
+         *
+         * @param i2c the bus to scan. 
+         *
+         */
+        static MicroBitCompassDriver& autoDetect(MicroBitI2C &i2c); 
 
 
     private:
