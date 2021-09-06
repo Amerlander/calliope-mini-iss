@@ -8,7 +8,7 @@
 #include "MAG3110.h"
 #include "LSM303Magnetometer.h"
 #include "FXOS8700.h"
-#include "BMX055Magnetometer.h"
+#include "BMX055MagnetometerDriver.h"
 
 
 /**
