@@ -112,7 +112,7 @@ MicroBitCompassDriver& MicroBitCompassDriver::autoDetect(MicroBitI2C &i2c)
         else
 #endif
 #ifdef MICROBIT_DEVICE_ENABLED_BMX055
-        if(BMX055Magnetometer::isDetected(i2c)) {
+        if(BMX055MagnetometerDriver::isDetected(i2c)) {
             // the Calliope mini coordinate space is rotated by 90 degrees and not upside down as micro:bit
             CoordinateSpace &coordinateSpace = *(new CoordinateSpace(SIMPLE_CARTESIAN, false, COORDINATE_SPACE_ROTATED_180));
             MicroBitPin int3(MICROBIT_ID_IO_INT3, p23, PIN_CAPABILITY_STANDARD);
