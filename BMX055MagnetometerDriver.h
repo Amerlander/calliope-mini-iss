@@ -94,7 +94,7 @@ enum BMX055_M_MODE {
  * This class provides the low level driver implementation for the BMX05 Magnetometer
  *
  */
-class BMX055MagnetometerDriver : public MicroBitCompassDriver
+class BMX055MagnetometerDriver : public MicroBitCompassLazy
 {
     MicroBitI2C&            i2c;                    // The I2C interface to use.
     MicroBitPin             int1;                   // Data ready interrupt.

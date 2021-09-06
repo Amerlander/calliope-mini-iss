@@ -1,6 +1,6 @@
 #include "MicroBitCompass.h"
 
-class MicroBitCompassDriver : public MicroBitCompass
+class MicroBitCompassLazy : public MicroBitCompass
 {
 
     protected:
@@ -24,7 +24,7 @@ class MicroBitCompassDriver : public MicroBitCompass
          * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
          *
          */
-        MicroBitCompassDriver(CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
+        MicroBitCompassLazy(CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
 
         /**
          * Constructor.
@@ -35,7 +35,7 @@ class MicroBitCompassDriver : public MicroBitCompass
          * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
          *
          */
-        MicroBitCompassDriver(MicroBitAccelerometer &accel, CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
+        MicroBitCompassLazy(MicroBitAccelerometer &accel, CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
 
 
         /**
@@ -45,7 +45,7 @@ class MicroBitCompassDriver : public MicroBitCompass
          * @param i2c the bus to scan. 
          *
          */
-        static MicroBitCompassDriver& autoDetect(MicroBitI2C &i2c); 
+        static MicroBitCompassLazy& autoDetect(MicroBitI2C &i2c); 
 
 
     private:
