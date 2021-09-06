@@ -28,7 +28,7 @@ DEALINGS IN THE SOFTWARE.
 #include "MicroBitConfig.h"
 #include "MicroBitComponent.h"
 #include "CoordinateSystem.h"
-#include "MicroBitCompassDriver.h"
+#include "compassDriver.h"
 #include "MicroBitI2C.h"
 #include "MicroBitUtil.h"
 
