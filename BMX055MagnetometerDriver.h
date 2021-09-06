@@ -1,6 +1,12 @@
 #include "BMX055Magnetometer.h"
 
-class BMX055MagnetometerDriver : public BMX055Magnetometer {
+class BMX055MagnetometerDriver : public BMX055Magnetometer 
+{
+
+    MicroBitI2C&            i2c;                    // The I2C interface to use.
+    MicroBitPin             int1;                   // Data ready interrupt.
+    uint16_t                address;                // I2C address of this compass.
+    uint8_t                 Mmode  = regular;       // Choose magnetometer operation mode
 
 public:
     /**
