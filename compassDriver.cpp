@@ -10,7 +10,7 @@
  * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
  *
  */
-MicroBitCompassDriver::MicroBitCompassDriver(CoordinateSpace &cspace, uint16_t id) : MicroBitCompass(id),  calibration(), sample(), sampleENU(), coordinateSpace(cspace)
+MicroBitCompassDriver::MicroBitCompassDriver(CoordinateSpace &cspace, uint16_t id) : MicroBitCompass(cspace, id)
 {
 }
 
@@ -23,7 +23,7 @@ MicroBitCompassDriver::MicroBitCompassDriver(CoordinateSpace &cspace, uint16_t i
  * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
  *
  */
-MicroBitCompassDriver::MicroBitCompassDriver(MicroBitAccelerometer &accel, CoordinateSpace &cspace, uint16_t id) : MicroBitCompass(id),  calibration(), sample(), sampleENU(), coordinateSpace(cspace)
+MicroBitCompassDriver::MicroBitCompassDriver(MicroBitAccelerometer &accel, CoordinateSpace &cspace, uint16_t id) : MicroBitCompass(accel, cspace, id)
 {
 }
 
