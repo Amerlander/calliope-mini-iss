@@ -168,7 +168,7 @@ int BMX055MagnetometerDriver::configure() {
   *
  */
 BMX055MagnetometerDriver::BMX055MagnetometerDriver(MicroBitI2C &_i2c, MicroBitPin _int1, CoordinateSpace &coordinateSpace,
-                                       uint16_t address, uint16_t id) : MicroBitCompass(coordinateSpace, id), i2c(_i2c),
+                                       uint16_t address, uint16_t id) : MicroBitCompassDriver(coordinateSpace, id), i2c(_i2c),
                                                                         int1(_int1) {
     // Store our identifiers.
     this->address = address;
