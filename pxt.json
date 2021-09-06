@@ -12,7 +12,9 @@
         "enums.d.ts",
         "compassDriver.h",
         "compass.cpp",
-        "compassDriver.cpp"
+        "compassDriver.cpp",
+        "BMX055MagnetometerDriver.h",
+        "BMX055MagnetometerDriver.cpp"
     ],
     "testFiles": [
         "test.ts"
