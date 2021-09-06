@@ -1,5 +1,14 @@
 #include "compassDriver.h"
+#include "ErrorNo.h"
+#include "MicroBitEvent.h"
+#include "MicroBitCompat.h"
+#include "MicroBitFiber.h"
+#include "MicroBitDevice.h"
 
+#include "MAG3110.h"
+#include "LSM303Magnetometer.h"
+#include "FXOS8700.h"
+#include "BMX055Magnetometer.h"
 
 
 /**
