@@ -43,7 +43,7 @@ MicroBitCompassDriver::MicroBitCompassDriver(MicroBitAccelerometer &accel, Coord
  * @param id the unique EventModel id of this component. Defaults to: MICROBIT_ID_COMPASS
  *
  */
-void MicroBitCompassDriver::init(uint16_t id)
+void MicroBitCompassDriverDriver::init(uint16_t id)
 {
     // Store our identifiers.
     this->id = id;
@@ -70,9 +70,9 @@ void MicroBitCompassDriver::init(uint16_t id)
  * @param id the unique EventModel id of this component. Defaults to: MICROBIT_ID_ACCELEROMETER
  *
  */
-MicroBitCompass& MicroBitCompass::autoDetect(MicroBitI2C &i2c)
+MicroBitCompassDriver& MicroBitCompassDriver::autoDetect(MicroBitI2C &i2c)
 {
-    if (MicroBitCompass::detectedCompass == NULL)
+    if (MicroBitCompassDriver::detectedCompass == NULL)
     {
 #ifdef MICROBIT_DEVICE_ENABLED_MMA3110
 
@@ -80,14 +80,14 @@ MicroBitCompass& MicroBitCompass::autoDetect(MicroBitI2C &i2c)
         if (MAG3110::isDetected(i2c))  {
             CoordinateSpace &coordinateSpace = *(new CoordinateSpace(SIMPLE_CARTESIAN, true, COORDINATE_SPACE_ROTATED_0));
             MicroBitPin int2(MICROBIT_ID_IO_INT2, P0_29, PIN_CAPABILITY_STANDARD);
-            MicroBitCompass::detectedCompass = new MAG3110(i2c, int2, coordinateSpace);
+            MicroBitCompassDriver::detectedCompass = new MAG3110(i2c, int2, coordinateSpace);
         } else
 #endif
 #ifdef MICROBIT_DEVICE_ENABLED_LSM303
         if (LSM303Magnetometer::isDetected(i2c)) {
             CoordinateSpace &coordinateSpace = *(new CoordinateSpace(SIMPLE_CARTESIAN, true, COORDINATE_SPACE_ROTATED_0));
             MicroBitPin int2(MICROBIT_ID_IO_INT2, P0_29, PIN_CAPABILITY_STANDARD);
-            MicroBitCompass::detectedCompass = new LSM303Magnetometer(i2c, int2, coordinateSpace);
+            MicroBitCompassDriver::detectedCompass = new LSM303Magnetometer(i2c, int2, coordinateSpace);
         } else
 #endif
 #ifdef MICROBIT_DEVICE_ENABLED_FXOS8700
@@ -96,7 +96,7 @@ MicroBitCompass& MicroBitCompass::autoDetect(MicroBitI2C &i2c)
             MicroBitPin int3(MICROBIT_ID_IO_INT3, P0_27, PIN_CAPABILITY_STANDARD);
             FXOS8700 *fxos =  new FXOS8700(i2c, int3, coordinateSpace);
             MicroBitAccelerometer::detectedAccelerometer = fxos;
-            MicroBitCompass::detectedCompass = fxos;
+            MicroBitCompassDriver::detectedCompass = fxos;
         }
 
         // Insert this case to support FXOS on the microbit1.5-SN
@@ -106,7 +106,7 @@ MicroBitCompass& MicroBitCompass::autoDetect(MicroBitI2C &i2c)
         //    MicroBitPin int3(MICROBIT_ID_IO_INT3, P0_27, PIN_CAPABILITY_STANDARD);
         //    FXOS8700 *fxos =  new FXOS8700(i2c, int3, coordinateSpace, 0x3A);
         //    MicroBitAccelerometer::detectedAccelerometer = fxos;
-        //    MicroBitCompass::detectedCompass = fxos;
+        //    MicroBitCompassDriver::detectedCompass = fxos;
         //}
 
         else
@@ -116,19 +116,19 @@ MicroBitCompass& MicroBitCompass::autoDetect(MicroBitI2C &i2c)
             // the Calliope mini coordinate space is rotated by 90 degrees and not upside down as micro:bit
             CoordinateSpace &coordinateSpace = *(new CoordinateSpace(SIMPLE_CARTESIAN, false, COORDINATE_SPACE_ROTATED_180));
             MicroBitPin int3(MICROBIT_ID_IO_INT3, p23, PIN_CAPABILITY_STANDARD);
-            MicroBitCompass::detectedCompass = new BMX055Magnetometer(i2c, int3, coordinateSpace);
+            MicroBitCompassDriver::detectedCompass = new BMX055MagnetometerDriver(i2c, int3, coordinateSpace);
         } else
 #endif
         {
             CoordinateSpace &coordinateSpace = *(new CoordinateSpace(SIMPLE_CARTESIAN, true, COORDINATE_SPACE_ROTATED_0));
-            MicroBitCompass *unavailable = new MicroBitCompass(coordinateSpace, MICROBIT_ID_COMPASS);
-            MicroBitCompass::detectedCompass = unavailable;
+            MicroBitCompassDriver *unavailable = new MicroBitCompassDriver(coordinateSpace, MICROBIT_ID_COMPASS);
+            MicroBitCompassDriver::detectedCompass = unavailable;
         }
     }
 
     // If an accelerometer has been discovered, enable tilt compensation on the e-compass.
     if (MicroBitAccelerometer::detectedAccelerometer)
-        MicroBitCompass::detectedCompass->setAccelerometer(*MicroBitAccelerometer::detectedAccelerometer);
+        MicroBitCompassDriver::detectedCompass->setAccelerometer(*MicroBitAccelerometer::detectedAccelerometer);
 
-    return *MicroBitCompass::detectedCompass;
+    return *MicroBitCompassDriver::detectedCompass;
 }
