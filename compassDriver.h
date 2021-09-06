@@ -1,21 +1,30 @@
-#include "MicroBitCompass.h"
+#include "MicroBitConfig.h"
+#include "MicroBitComponent.h"
+#include "CoordinateSystem.h"
+#include "MicroBitAccelerometer.h"
+
+
+/**
+ * Status flags
+ */
+// #define MICROBIT_COMPASS_STATUS_RUNNING                  0x01
+// #define MICROBIT_COMPASS_STATUS_CALIBRATED               0x02
+// #define MICROBIT_COMPASS_STATUS_CALIBRATING              0x04
+// #define MICROBIT_COMPASS_STATUS_ADDED_TO_IDLE            0x08
+
+/**
+ * Accelerometer events
+ */
+// #define MICROBIT_COMPASS_EVT_DATA_UPDATE                 1
+// #define MICROBIT_COMPASS_EVT_CONFIG_NEEDED               2
+// #define MICROBIT_COMPASS_EVT_CALIBRATE                   3
+// #define MICROBIT_COMPASS_EVT_CALIBRATION_NEEDED          4
 
 class MicroBitCompassDriver : public MicroBitCompass
 {
 
-    protected:
-
-        uint16_t                samplePeriod;               // The time between samples, in milliseconds.
-        CompassCalibration      calibration;                // The calibration data of this compass 
-        Sample3D                sample;                     // The last sample read, in the coordinate system specified by the coordinateSpace variable.
-        Sample3D                sampleENU;                  // The last sample read, in raw ENU format (stored in case requests are made for data in other coordinate spaces)
-        CoordinateSpace         &coordinateSpace;           // The coordinate space transform (if any) to apply to the raw data from the hardware.
-        MicroBitAccelerometer*  accelerometer;              // The accelerometer to use for tilt compensation.
-
     public:
 
-       static MicroBitCompass   *detectedCompass;           // The autodetected instance of a MicroBitAcelerometer driver.
-
         /**
          * Constructor.
          * Create a software abstraction of an e-compass.
@@ -24,29 +33,7 @@ class MicroBitCompassDriver : public MicroBitCompass
          * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
          *
          */
-        MicroBitCompassDriver(CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
-
-        /**
-         * Constructor.
-         * Create a software abstraction of an e-compass.
-         *
-         * @param id the unique EventModel id of this component. Defaults to: MICROBIT_ID_COMPASS
-         * @param accel the accelerometer to use for tilt compensation
-         * @param coordinateSpace the orientation of the sensor. Defaults to: SIMPLE_CARTESIAN
-         *
-         */
-        MicroBitCompassDriver(MicroBitAccelerometer &accel, CoordinateSpace &coordinateSpace, uint16_t id = MICROBIT_ID_COMPASS);
-
-
-        /**
-         * Device autodetection. Scans the given I2C bus for supported compass devices.
-         * if found, constructs an appropriate driver and returns it.
-         *
-         * @param i2c the bus to scan. 
-         *
-         */
-        static MicroBitCompassDriver& autoDetect(MicroBitI2C &i2c); 
-
+        MicroBitCompassDriver(uint16_t id = MICROBIT_ID_COMPASS);
 
     private:
 
