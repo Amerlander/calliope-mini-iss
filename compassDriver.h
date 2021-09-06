@@ -3,18 +3,7 @@
 class MicroBitCompassLazy : public MicroBitCompass
 {
 
-    protected:
-
-        uint16_t                samplePeriod;               // The time between samples, in milliseconds.
-        CompassCalibration      calibration;                // The calibration data of this compass 
-        Sample3D                sample;                     // The last sample read, in the coordinate system specified by the coordinateSpace variable.
-        Sample3D                sampleENU;                  // The last sample read, in raw ENU format (stored in case requests are made for data in other coordinate spaces)
-        CoordinateSpace         &coordinateSpace;           // The coordinate space transform (if any) to apply to the raw data from the hardware.
-        MicroBitAccelerometer*  accelerometer;              // The accelerometer to use for tilt compensation.
-
     public:
-
-       static MicroBitCompass   *detectedCompass;           // The autodetected instance of a MicroBitAcelerometer driver.
 
         /**
          * Constructor.
